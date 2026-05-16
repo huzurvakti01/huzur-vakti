@@ -80,7 +80,7 @@ class _QuranScreenState extends State<QuranScreen> {
           future: _future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const ListView(
+              return  ListView(
                 children: [
                   SizedBox(height: 360, child: Center(child: CircularProgressIndicator())),
                 ],
@@ -213,7 +213,7 @@ class _QuranReaderScreenState extends State<QuranReaderScreen> {
           future: _future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const ListView(
+              return  ListView(
                 children: [
                   SizedBox(height: 360, child: Center(child: CircularProgressIndicator())),
                 ],
