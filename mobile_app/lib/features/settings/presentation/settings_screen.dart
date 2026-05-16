@@ -142,7 +142,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
-
   Future<void> _toggleHardWake(bool value) async {
     final isPremium = context.read<PurchaseService>().isPremium;
 
@@ -215,7 +214,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     context.push(path);
   }
 
-
   Future<void> _setLanguage(Locale locale) async {
     await context.setLocale(locale);
     if (mounted) setState(() {});
@@ -245,7 +243,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (mounted) ErrorPresenter.showSnackBar(context, error);
     }
   }
-
 
   Future<void> _deleteAccount() async {
     final confirmed = await showDialog<bool>(
@@ -305,8 +302,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               secondary: const Icon(Icons.child_care_rounded),
             ),
           ),
-
-
           GlassCard(
             child: ListTile(
               leading: const Icon(Icons.public_rounded),
@@ -549,75 +544,6 @@ class _SettingsTile extends StatelessWidget {
     required this.icon,
     required this.onTap,
   });
-
-
-  Future<void> _setLanguage(Locale locale) async {
-    await context.setLocale(locale);
-    if (mounted) setState(() {});
-  }
-
-  Future<void> _autoSelectCalculationMethod() async {
-    try {
-      final pos = await context.read<LocationService>().currentPosition();
-      final method = await context.read<GlobalSettingsService>().autoSelectCalculationMethod(
-            latitude: pos.latitude,
-            longitude: pos.longitude,
-          );
-
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppStrings.localizationAutoMethod}: ${method.title}')),
-      );
-    } catch (error) {
-      if (mounted) ErrorPresenter.showSnackBar(context, error);
-    }
-  }
-
-  Future<void> _openConsentForm() async {
-    try {
-      await context.read<ConsentService>().showPrivacyOptions();
-    } catch (error) {
-      if (mounted) ErrorPresenter.showSnackBar(context, error);
-    }
-  }
-
-
-  Future<void> _deleteAccount() async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
-        title: const Text(AppStrings.deleteAccountTitle),
-        content: const Text(AppStrings.deleteAccountBody),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text(AppStrings.later),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: const Text(AppStrings.deleteAccountConfirm),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed != true) return;
-
-    try {
-      await context.read<AuthService>().deleteAccount();
-
-      if (!mounted) return;
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text(AppStrings.deleteAccountDone)),
-      );
-
-      context.go('/auth');
-    } catch (error) {
-      if (mounted) ErrorPresenter.showSnackBar(context, error);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

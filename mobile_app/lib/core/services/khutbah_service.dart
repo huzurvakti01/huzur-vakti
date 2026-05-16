@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-
 import '../constants/app_strings.dart';
 import '../errors/app_exception.dart';
 import '../logging/app_logger.dart';
@@ -57,6 +55,32 @@ class KhutbahService {
         code: 'khutbah_fetch_failed',
       );
     }
+  }
+
+  String _safeSummary(String html) {
+    final withoutScripts = html
+        .replaceAll(RegExp(r'<script[^>]*>.*?</script>', caseSensitive: false, dotAll: true), ' ')
+        .replaceAll(RegExp(r'<style[^>]*>.*?</style>', caseSensitive: false, dotAll: true), ' ');
+
+    final text = withoutScripts
+        .replaceAll(RegExp(r'<[^>]+>'), ' ')
+        .replaceAll('&nbsp;', ' ')
+        .replaceAll('&amp;', '&')
+        .replaceAll('&quot;', '"')
+        .replaceAll('&#39;', "'")
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+
+    if (text.isEmpty) {
+      return AppStrings.khutbahUnavailable;
+    }
+
+    const maxLength = 260;
+    if (text.length <= maxLength) {
+      return text;
+    }
+
+    return '${text.substring(0, maxLength).trim()}…';
   }
 }
 
