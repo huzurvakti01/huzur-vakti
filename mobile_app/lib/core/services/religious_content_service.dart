@@ -46,7 +46,7 @@ class DashboardReligiousContent {
         ),
       ];
     } catch (_) {
-      return fallback;
+      return [];
     }
   }
 
