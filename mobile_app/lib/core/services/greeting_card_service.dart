@@ -39,7 +39,6 @@ class GreetingCardService {
             x2: 1080,
             y2: 1350,
             color: img.ColorRgba8(0, 0, 0, 76),
-            blend: img.BlendMode.alpha,
           );
         }
       } else {
