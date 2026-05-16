@@ -50,7 +50,7 @@ class _AyahFinderScreenState extends State<AyahFinderScreen> with SingleTickerPr
     final permission = await Permission.microphone.request();
 
     if (!permission.isGranted) {
-      if (mounted) ErrorPresenter.showSnackBar(context, const Exception(AppStrings.microphonePermissionNeeded));
+      if (mounted) ErrorPresenter.showSnackBar(context,  Exception(AppStrings.microphonePermissionNeeded));
       return;
     }
 
