@@ -288,6 +288,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final auth = context.watch<AuthService>();
     final globalSettings = context.watch<GlobalSettingsService>();
 
+    final supportedLocales = <Locale>[
+      const Locale('tr'),
+      const Locale('en'),
+      const Locale('ar'),
+      const Locale('fr'),
+      const Locale('ur'),
+      const Locale('id'),
+    ];
+
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.settingsTitle)),
       body: ListView(
@@ -306,7 +315,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: ListTile(
               leading: const Icon(Icons.public_rounded),
               title: const Text(AppStrings.openLanguageCountrySetup, style: TextStyle(fontWeight: FontWeight.w900)),
-              subtitle: Text('${globalSettings.country.flag} ${globalSettings.country.label(context.locale.languageCode)} • ${globalSettings.method.title}'),
+              subtitle: Text(
+                '${globalSettings.country.flag} ${globalSettings.country.label(context.locale.languageCode)} • ${globalSettings.method.title}',
+              ),
               trailing: const Icon(Icons.chevron_right_rounded),
               onTap: () => context.push('/smart-setup?edit=1'),
             ),
@@ -315,19 +326,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppStrings.localizationLanguage, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
+                Text(
+                  AppStrings.localizationLanguage,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                ),
                 const SizedBox(height: 12),
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: const [
-                    Locale('tr'),
-                    Locale('en'),
-                    Locale('ar'),
-                    Locale('fr'),
-                    Locale('ur'),
-                    Locale('id'),
-                  ].map((locale) {
+                  children: supportedLocales.map((locale) {
                     final selected = context.locale.languageCode == locale.languageCode;
                     return ChoiceChip(
                       selected: selected,
@@ -343,7 +350,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppStrings.localizationCalculationMethod, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
+                Text(
+                  AppStrings.localizationCalculationMethod,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                ),
                 const SizedBox(height: 8),
                 ...CalculationMethod.all.map(
                   (method) => RadioListTile<int>(
@@ -374,7 +384,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppStrings.localizationHijriOffset, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
+                Text(
+                  AppStrings.localizationHijriOffset,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                ),
                 const SizedBox(height: 12),
                 SegmentedButton<int>(
                   segments: const [
@@ -469,7 +482,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppStrings.adhanAudioSelection, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
+                Text(
+                  AppStrings.adhanAudioSelection,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                ),
                 const SizedBox(height: 12),
                 ...AdhanAudioService.sources.map(
                   (s) => FutureBuilder<bool>(
@@ -522,6 +538,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 _SettingsTile(title: AppStrings.premiumLibraryTitle, icon: Icons.headphones_rounded, onTap: () => _open(context, '/premium-library', 'premium_audio_library')),
                 _SettingsTile(title: AppStrings.premiumTitle, icon: Icons.workspace_premium_rounded, onTap: () => _open(context, '/premium', 'premium')),
               ],
+            ),
+          ),
+          GlassCard(
+            child: ListTile(
+              leading: const Icon(Icons.delete_forever_rounded, color: Colors.redAccent),
+              title: const Text(AppStrings.deleteAccount, style: TextStyle(fontWeight: FontWeight.w900)),
+              subtitle: const Text(AppStrings.deleteAccountBody),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: _deleteAccount,
             ),
           ),
           GlassCard(
