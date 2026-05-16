@@ -91,7 +91,7 @@ class _LanguageCountrySetupScreenState extends State<LanguageCountrySetupScreen>
     final country = selectedCountry;
 
     if (country == null) {
-      ErrorPresenter.showSnackBar(context,  Exception(AppStrings.countryRequired));
+      ErrorPresenter.showSnackBar(context, Exception(AppStrings.countryRequired));
       return;
     }
 
