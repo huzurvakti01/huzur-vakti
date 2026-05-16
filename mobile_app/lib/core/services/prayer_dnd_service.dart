@@ -54,7 +54,7 @@ class PrayerDndService {
       final granted = await FlutterDnd.isNotificationPolicyAccessGranted ?? false;
 
       if (!granted) {
-        await FlutterDnd.gotoPolicySettings();
+         FlutterDnd.gotoPolicySettings();
         throw const AppException(
           AppStrings.dndPermissionNeeded,
           code: 'dnd_permission_required',
