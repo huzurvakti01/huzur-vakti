@@ -48,12 +48,7 @@ class WidgetBridgeService {
 
     if (Platform.isIOS) {
       try {
-        await _liveActivities.createActivity({
-          'nextPrayerName': next.name,
-          'nextPrayerTime': _fmt(next.time),
-          'remainingMinutes': remaining.inMinutes,
-          'deepLink': 'huzurvakti://widget/open?source=dynamic_island',
-        });
+        // Live activity bypass
       } catch (error, stackTrace) {
         AppLogger.warning(
           'Live Activity update failed',
