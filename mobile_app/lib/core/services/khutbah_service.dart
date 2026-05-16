@@ -1,5 +1,7 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+
 import '../constants/app_strings.dart';
 import '../errors/app_exception.dart';
 import '../logging/app_logger.dart';
@@ -31,7 +33,11 @@ class KhutbahService {
       }
 
       final body = utf8.decode(response.bodyBytes);
-      final titleMatch = RegExp(r'<title>(.*?)</title>', caseSensitive: false, dotAll: true).firstMatch(body);
+      final titleMatch = RegExp(
+        r'<title>(.*?)</title>',
+        caseSensitive: false,
+        dotAll: true,
+      ).firstMatch(body);
       final cleanTitle = titleMatch?.group(1)?.replaceAll(RegExp(r'\s+'), ' ').trim();
 
       return KhutbahContent(
