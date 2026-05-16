@@ -60,11 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(width: 12),
               Expanded(child: FilledButton(onPressed: () { traveler.setActive(true); Navigator.pop(context); }, child: const Text(AppStrings.open))),
             ]),
-            ],
-          ),
-        ),
-     // ),
-   // );
+      ],
+    ),
+  ),
+);
   }
 
   @override
