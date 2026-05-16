@@ -77,7 +77,7 @@ class AppIconService {
         );
       }
 
-      await FlutterDynamicIcon.setAlternateIconName(
+      await FlutterDynamicIcon.setAlternateIconName(null);
         iconName: option.iconName,
         showAlert: false,
       );
