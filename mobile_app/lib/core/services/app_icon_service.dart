@@ -78,10 +78,6 @@ class AppIconService {
       }
 
       await FlutterDynamicIcon.setAlternateIconName(null);
-        iconName: option.iconName,
-        showAlert: false,
-      );
-
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(_selectedIconKey, option.id);
     } on AppException {
