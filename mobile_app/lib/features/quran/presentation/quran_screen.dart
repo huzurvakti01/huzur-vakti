@@ -130,7 +130,7 @@ bool _audioPlaying = false;
                     trailing: Text(
                       surah.name,
                       style: const TextStyle(fontSize: 24),
-                      textDirection: TextDirection.rtl,
+      
                     ),
                   ),
                 );
@@ -289,7 +289,6 @@ class _QuranReaderScreenState extends State<QuranReaderScreen> {
                                 ayah.text,
                                 style: const TextStyle(fontSize: 30, height: 1.9),
                                 textAlign: TextAlign.right,
-                                textDirection: TextDirection.rtl,
                               ),
                               const SizedBox(height: 12),
                               Text(
