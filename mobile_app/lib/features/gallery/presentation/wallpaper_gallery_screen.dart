@@ -116,7 +116,7 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
           future: future,
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const ListView(children: [SizedBox(height: 360, child: Center(child: CircularProgressIndicator()))]);
+              return  ListView(children: [SizedBox(height: 360, child: Center(child: CircularProgressIndicator()))]);
             }
 
             final images = snapshot.data!;
