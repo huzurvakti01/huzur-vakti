@@ -63,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
+     // ),
+   // );
   }
 
   @override
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               _QuickActions(),
-              const DashboardNativeAd(),
+             // const DashboardNativeAd(),
               _PrayerListCard(),
             ],
           ],
