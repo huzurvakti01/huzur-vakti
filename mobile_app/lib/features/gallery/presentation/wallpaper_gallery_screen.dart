@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,11 +25,11 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
   @override
   void initState() {
     super.initState();
-    future = GalleryService().fetchIslamicWallpapers();
+    future = context.read<GalleryService>().fetchIslamicWallpapers();
   }
 
   Future<void> _reload() async {
-    setState(() => future = GalleryService().fetchIslamicWallpapers());
+    setState(() => future = context.read<GalleryService>().fetchIslamicWallpapers());
     await future;
   }
 
@@ -39,7 +40,7 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
 
   Future<void> _saveToDevice(GalleryImage image) async {
     try {
-      await GalleryService().saveImageToDevice(image);
+      await context.read<GalleryService>().saveImageToDevice(image);
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
