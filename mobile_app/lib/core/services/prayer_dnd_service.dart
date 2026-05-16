@@ -13,7 +13,7 @@ class PrayerDndService {
   }
 
   Future<void> openPolicySettings() async {
-    await FlutterDnd.gotoPolicySettings();
+     FlutterDnd.gotoPolicySettings();
   }
 
   Future<bool> ensurePolicyAccess() async {
@@ -38,7 +38,7 @@ class PrayerDndService {
     if (value) {
       final granted = await FlutterDnd.isNotificationPolicyAccessGranted ?? false;
       if (!granted) {
-        await FlutterDnd.gotoPolicySettings();
+         FlutterDnd.gotoPolicySettings();
         throw const AppException(
           AppStrings.dndPermissionNeeded,
           code: 'dnd_permission_required',
