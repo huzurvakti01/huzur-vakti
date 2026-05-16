@@ -23,8 +23,7 @@ class DashboardReligiousContent {
 
   Future<List<DashboardReligiousContent>> _localizedFallback(String languageCode) async {
     try {
-      final content = await _hub.localDailyContent(languageCode);
-
+      final content = {};
       return [
         DashboardReligiousContent(
           type: AppStrings.dashboardAyahCard,
