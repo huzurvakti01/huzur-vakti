@@ -13,16 +13,22 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Eski paketlerin "Namespace" hatası vermesini engelleyen sihirli tamir kodu:
+// Zamanlama korumalı geliştirilmiş yeni namespace tamir kodu:
 subprojects {
-    afterEvaluate { project ->
-        if (project.hasProperty('android')) {
-            project.android {
+    def fixNamespace = { prj ->
+        if (prj.hasProperty('android')) {
+            prj.android {
                 if (namespace == null) {
-                    namespace = "com.huzurvakti.fallback." + project.name
+                    namespace = "com.huzurvakti.fallback." + prj.name
                 }
             }
         }
+    }
+
+    if (project.state.executed) {
+        fixNamespace(project)
+    } else {
+        project.afterEvaluate { fixNamespace(project) }
     }
 }
 
