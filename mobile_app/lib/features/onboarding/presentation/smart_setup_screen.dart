@@ -227,7 +227,7 @@ class _SmartSetupScreenState extends State<SmartSetupScreen> {
                                         ),
                                       ),
                                       Text(
-                                        direction == TextDirection.rtl ? 'RTL' : 'LTR',
+                                        direction.toString().contains('rtl') ? 'RTL' : 'LTR',
                                         style: const TextStyle(color: AppTheme.gold, fontWeight: FontWeight.w900),
                                       ),
                                     ],
