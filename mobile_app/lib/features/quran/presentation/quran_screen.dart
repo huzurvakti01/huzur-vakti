@@ -20,6 +20,7 @@ class QuranScreen extends StatefulWidget {
 }
 
 class _QuranScreenState extends State<QuranScreen> {
+bool _audioPlaying = false;
   late Future<List<QuranSurah>> _future;
 
   @override
