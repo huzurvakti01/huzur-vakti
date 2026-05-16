@@ -1,0 +1,11 @@
+{
+  "name": "Huzur Vakti God Mode Admin",
+  "short_name": "HV Admin",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07110F",
+  "theme_color": "#0E7C66",
+  "description": "Huzur Vakti admin command center",
+  "orientation": "landscape-primary",
+  "prefer_related_applications": false
+}

@@ -1,0 +1,12 @@
+{
+  "method": "offline-fallback",
+  "note": "Yerel fallback vakitleri yaklaşık düzeni korumak içindir. İnternet geldiğinde AlAdhan verisi otomatik kullanılır.",
+  "times": {
+    "Fajr": "05:20",
+    "Sunrise": "06:45",
+    "Dhuhr": "12:55",
+    "Asr": "16:10",
+    "Maghrib": "19:05",
+    "Isha": "20:30"
+  }
+}

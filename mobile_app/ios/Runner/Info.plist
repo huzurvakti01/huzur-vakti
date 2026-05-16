@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleDisplayName</key>
+    <string>Huzur Vakti</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.huzurvakti.app</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Huzur Vakti</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(FLUTTER_BUILD_NAME)</string>
+    <key>CFBundleVersion</key>
+    <string>$(FLUTTER_BUILD_NUMBER)</string>
+
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-3940256099942544~1458002511</string>
+    <key>GADIsAdManagerApp</key>
+    <false/>
+
+    <key>NSUserTrackingUsageDescription</key>
+    <string>İzin verirseniz reklam tanımlayıcısı, uygulamada size daha ilgili reklamlar göstermek ve reklam performansını ölçmek için kullanılır. Çocuk Modu, ana namaz ekranı, Kur’an, Kıble, ezan alarmı ve AI ekranlarında reklam gösterilmez.</string>
+
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Konumunuz; bulunduğunuz yere göre namaz vakitlerini hesaplamak, kıble yönünü göstermek, seferi modu mesafesini belirlemek ve yakındaki camileri listelemek için yalnızca uygulamayı kullanırken alınır.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>İzin verirseniz namaz vakti, ezan alarmı ve seferi modu hatırlatmalarının daha doğru çalışması için konumunuz arka planda sınırlı şekilde kullanılabilir. Konum veriniz üçüncü taraflara satılmaz.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Namaz vakti ve seferi modu hatırlatmalarını desteklemek için konumunuz arka planda sınırlı şekilde kullanılabilir. Bu izin yalnızca ilgili özellikler aktifken kullanılır.</string>
+
+    <key>NSUserNotificationUsageDescription</key>
+    <string>Namaz vakti, ezan alarmı, teheccüd, oruç ve uygulama içi önemli hatırlatmaları zamanında gönderebilmek için bildirim izni isteriz.</string>
+
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Okunan ayeti bulma özelliğinde sesinizi kısa süreli dinleyip tanıma servisine gönderebilmek için mikrofon erişimi gerekir.</string>
+
+    <key>NSFaceIDUsageDescription</key>
+    <string>Premium özel notlar ve rüya kayıtları gibi kişisel alanları Face ID veya Touch ID ile korumak için kullanılır.</string>
+
+    <key>NSMotionUsageDescription</key>
+    <string>Kıble pusulasının daha kararlı ve doğru çalışması için cihazın hareket ve yön sensörlerinden yararlanılır.</string>
+
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+    <key>NSSupportsLiveActivities</key>
+    <true/>
+
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+        <string>location</string>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
+
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.huzurvakti.app</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>huzurvakti</string>
+            </array>
+        </dict>
+    </array>
+
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>googlemaps</string>
+        <string>maps</string>
+        <string>geo</string>
+        <string>tel</string>
+        <string>mailto</string>
+    </array>
+
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+    </array>
+
+    <key>CFBundleIcons</key>
+    <dict>
+        <key>CFBundlePrimaryIcon</key>
+        <dict>
+            <key>CFBundleIconFiles</key>
+            <array>
+                <string>AppIcon</string>
+            </array>
+        </dict>
+        <key>CFBundleAlternateIcons</key>
+        <dict>
+            <key>GoldIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>GoldIcon</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>DarkIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>DarkIcon</string>
+                </array>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>

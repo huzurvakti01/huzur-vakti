@@ -1,0 +1,19 @@
+{
+  "name": "HuzurVakti_APK_Build_Ready",
+  "created_at": "2026-05-16T08:24:32.120969",
+  "updates": [
+    "Android SDK set to compile/target 34 and min 21",
+    "R8/Proguard and shrinkResources enabled",
+    "Proguard rules hardened",
+    "Android permissions hardened",
+    "GitHub Actions APK workflow added"
+  ],
+  "important_paths": [
+    "mobile_app/android/app/build.gradle",
+    "mobile_app/android/app/proguard-rules.pro",
+    "mobile_app/android/app/src/main/AndroidManifest.xml",
+    ".github/workflows/build_apk.yml"
+  ],
+  "audit": "tool/apk_build_audit.py",
+  "audit_result": "passed"
+}

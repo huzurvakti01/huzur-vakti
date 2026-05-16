@@ -1,0 +1,159 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.isAdmin == true;
+    }
+
+    function isHexColor(value) {
+      return value is string && value.matches('^#[0-9A-Fa-f]{6}$');
+    }
+
+    function isHttpUrl(value) {
+      return value is string
+        && value.size() <= 2048
+        && (
+          value == ''
+          || value.matches('^https://.*')
+        );
+    }
+
+    function validTheme() {
+      return request.resource.data.keys().hasOnly([
+        'logoUrl',
+        'splashImageUrl',
+        'colors',
+        'fontStyle',
+        'primaryColor',
+        'localization_override',
+        'schemaVersion',
+        'updatedAt',
+        'updatedBy',
+        'revision'
+      ])
+      && isHttpUrl(request.resource.data.logoUrl)
+      && isHttpUrl(request.resource.data.splashImageUrl)
+      && request.resource.data.colors is map
+      && isHexColor(request.resource.data.colors.primary)
+      && isHexColor(request.resource.data.colors.secondary)
+      && isHexColor(request.resource.data.colors.background)
+      && isHexColor(request.resource.data.colors.surface)
+      && isHexColor(request.resource.data.colors.text)
+      && request.resource.data.fontStyle is map
+      && request.resource.data.fontStyle.family is string
+      && request.resource.data.fontStyle.family.size() <= 60
+      && request.resource.data.fontStyle.arabicFamily is string
+      && request.resource.data.fontStyle.arabicFamily.size() <= 60
+      && request.resource.data.schemaVersion is int
+      && request.resource.data.schemaVersion >= 1;
+    }
+
+    function validFeatures() {
+      return request.resource.data.keys().hasOnly([
+        'ai_active',
+        'widgets_active',
+        'women_calendar_active',
+        'seferi_mode_active',
+        'media_center_active',
+        'community_active',
+        'kids_mode_active',
+        'premium_paywall_active',
+        'force_update_active',
+        'min_version_code',
+        'schemaVersion',
+        'updatedAt',
+        'updatedBy',
+        'revision'
+      ])
+      && request.resource.data.ai_active is bool
+      && request.resource.data.widgets_active is bool
+      && request.resource.data.women_calendar_active is bool
+      && request.resource.data.seferi_mode_active is bool
+      && request.resource.data.media_center_active is bool
+      && request.resource.data.community_active is bool
+      && request.resource.data.kids_mode_active is bool
+      && request.resource.data.premium_paywall_active is bool
+      && request.resource.data.force_update_active is bool
+      && request.resource.data.min_version_code is int
+      && request.resource.data.min_version_code >= 1
+      && request.resource.data.schemaVersion is int
+      && request.resource.data.schemaVersion >= 1;
+    }
+
+    function validAds() {
+      return request.resource.data.keys().hasOnly([
+        'ads_active',
+        'native_active',
+        'interstitial_active',
+        'banner_id_android',
+        'banner_id_ios',
+        'native_id_android',
+        'native_id_ios',
+        'interstitial_id_android',
+        'interstitial_id_ios',
+        'frequency',
+        'sensitive_screens_blocked',
+        'schemaVersion',
+        'updatedAt',
+        'updatedBy',
+        'revision'
+      ])
+      && request.resource.data.ads_active is bool
+      && request.resource.data.native_active is bool
+      && request.resource.data.interstitial_active is bool
+      && request.resource.data.banner_id_android is string
+      && request.resource.data.banner_id_ios is string
+      && request.resource.data.native_id_android is string
+      && request.resource.data.native_id_ios is string
+      && request.resource.data.interstitial_id_android is string
+      && request.resource.data.interstitial_id_ios is string
+      && request.resource.data.frequency is int
+      && request.resource.data.frequency >= 1
+      && request.resource.data.frequency <= 20
+      && request.resource.data.sensitive_screens_blocked is list
+      && request.resource.data.sensitive_screens_blocked.size() <= 30
+      && request.resource.data.schemaVersion is int
+      && request.resource.data.schemaVersion >= 1;
+    }
+
+    match /app_settings/{docId} {
+      allow read: if true;
+
+      allow create, update: if isAdmin()
+        && (
+          (docId == 'theme' && validTheme())
+          || (docId == 'features' && validFeatures())
+          || (docId == 'ads' && validAds())
+          || (docId == 'localization_override' && request.resource.data.keys().hasOnly([
+              'localization_override',
+              'schemaVersion',
+              'updatedAt',
+              'updatedBy',
+              'revision'
+            ]))
+          || (docId == 'monetization' && isAdmin())
+          || (docId == 'feature_flags' && isAdmin())
+        );
+
+      allow delete: if isAdmin();
+    }
+
+    match /app_settings_meta/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /admin_audit_logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

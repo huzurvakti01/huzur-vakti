@@ -1,0 +1,32 @@
+{
+  "name": "HuzurVakti_Native_Monetization_Final",
+  "created_at": "2026-05-16T07:56:33.437936",
+  "native_ad_factories": [
+    "Android MainActivity.kt HuzurGlassNativeAdFactory",
+    "Android res/layout/native_ad_glass.xml",
+    "iOS HuzurGlassNativeAdFactory.swift",
+    "iOS AppDelegate.swift factory registration",
+    "Flutter DashboardNativeAd factoryId huzur_glass_native"
+  ],
+  "revenuecat_security": [
+    "PremiumSecureStorageService added",
+    "RevenueCat purchase/restore/refresh writes verified premium state",
+    "Legacy in_app_purchase stream writes secure premium state"
+  ],
+  "store_compliance": [
+    "AuthService.deleteAccount added",
+    "Settings account deletion button added",
+    "AdConsentService first-launch UMP flow added"
+  ],
+  "important_paths": [
+    "mobile_app/android/app/src/main/kotlin/com/huzurvakti/app/MainActivity.kt",
+    "mobile_app/ios/Runner/HuzurGlassNativeAdFactory.swift",
+    "mobile_app/ios/Runner/AppDelegate.swift",
+    "mobile_app/lib/core/services/ad_consent_service.dart",
+    "mobile_app/lib/core/services/premium_secure_storage_service.dart",
+    "mobile_app/lib/core/services/revenuecat_service.dart",
+    "mobile_app/lib/features/settings/presentation/settings_screen.dart"
+  ],
+  "audit": "tool/native_monetization_audit.py",
+  "audit_result": "passed"
+}

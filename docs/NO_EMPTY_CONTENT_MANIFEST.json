@@ -1,0 +1,21 @@
+{
+  "name": "HuzurVakti_Global_SuperApp",
+  "updated_at": "2026-05-16T07:00:50.478407",
+  "no_empty_content_update": {
+    "wallpapers": [
+      "Unsplash API if configured",
+      "High-quality fallback images",
+      "Tap image to save to device",
+      "Tap image to create greeting card using selected image as background",
+      "Share image/source"
+    ],
+    "religious_content": [
+      "quran.cloud ayah by active language",
+      "Hadith API daily hadith",
+      "Diyanet khutbah headline",
+      "Fallback content if network fails"
+    ]
+  },
+  "audit": "tool/no_empty_content_audit.py",
+  "audit_result": "passed"
+}

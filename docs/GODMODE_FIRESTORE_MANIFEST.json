@@ -1,0 +1,28 @@
+{
+  "name": "HuzurVakti_GodMode_Firestore_Architecture",
+  "created_at": "2026-05-16T08:16:50.324510",
+  "database_updates": [
+    "firestore_godmode.rules added",
+    "app_settings/theme schema prepared",
+    "app_settings/features schema prepared",
+    "app_settings/ads schema prepared",
+    "public read and admin-only write barrier added",
+    "singleton real-time listener strategy documented",
+    "Cloud Functions Firestore-to-Remote-Config autopilot sync added",
+    "sync meta documents added under app_settings_meta"
+  ],
+  "important_paths": [
+    "firestore_godmode.rules",
+    "docs/GODMODE_FIRESTORE_SCHEMA.json",
+    "docs/GODMODE_FIRESTORE_ARCHITECTURE.md",
+    "admin_panel/functions/index.js"
+  ],
+  "functions": [
+    "syncGodModeThemeToRemoteConfig",
+    "syncGodModeFeaturesToRemoteConfig",
+    "syncGodModeAdsToRemoteConfig",
+    "seedGodModeAppSettings"
+  ],
+  "audit": "tool/godmode_firestore_audit.py",
+  "audit_result": "passed"
+}

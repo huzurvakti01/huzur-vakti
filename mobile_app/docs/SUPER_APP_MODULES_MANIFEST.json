@@ -1,0 +1,34 @@
+{
+  "name": "HuzurVakti_SuperApp_Modules",
+  "created_at": "2026-05-16T05:52:05.910574",
+  "base": "HuzurVakti_FreeCloudSync_PremiumGuards_Final.zip",
+  "navigation": {
+    "bottom_tabs": [
+      "Vakit",
+      "Huzur Vakti",
+      "Sosyal",
+      "Araçlar"
+    ],
+    "super_hub_tabs": [
+      "İbadet",
+      "Kur’an",
+      "Sosyal",
+      "Araçlar"
+    ]
+  },
+  "new_modules": [
+    "Medya Merkezi: Kabe/Mescid-i Nebevi canlı yayın + 7/24 Kur’an radyosu",
+    "Kadın Özel: Hive tabanlı regl ve ibadet takvimi",
+    "Namazdayım: flutter_dnd ile DND/sessiz mod servisi",
+    "Tebrik Kartı Üretici: image + share_plus ile paylaşılabilir kart",
+    "Haftanın Hutbesi & Ay Fazı: Diyanet kaynak sayfası + lokal ay fazı hesaplama",
+    "Okunan Ayeti Bul: record + permission_handler + backend upload servisi"
+  ],
+  "ad_rules": [
+    "Super Hub and list/menu screens include SafeBannerAd and AdService tracking",
+    "Media playback screens hide ads",
+    "media_center, quran_radio, live_stream are sensitive no-interstitial keys"
+  ],
+  "audit": "tool/super_app_audit.py",
+  "audit_result": "passed"
+}

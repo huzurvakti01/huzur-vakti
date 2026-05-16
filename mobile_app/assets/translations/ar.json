@@ -1,0 +1,20 @@
+{
+  "appName": "وقت السكينة",
+  "settingsTitle": "الإعدادات",
+  "language": "اللغة",
+  "calculationMethod": "طريقة حساب أوقات الصلاة",
+  "hijriOffset": "تعديل التقويم الهجري",
+  "consentPrivacy": "الخصوصية وموافقة الإعلانات",
+  "consentManage": "إدارة تفضيلات الموافقة",
+  "autoMethod": "اختيار الطريقة تلقائياً حسب الموقع",
+  "method_3": "رابطة العالم الإسلامي",
+  "method_4": "أم القرى",
+  "method_2": "ISNA",
+  "method_13": "ديانت",
+  "home": "الرئيسية",
+  "quran": "القرآن الكريم",
+  "toolsCompass": "الأدوات والقبلة",
+  "assistantSupport": "المساعد والدعم",
+  "premium": "بريميوم",
+  "support": "مركز الدعم"
+}

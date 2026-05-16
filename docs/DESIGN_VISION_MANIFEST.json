@@ -1,0 +1,21 @@
+{
+  "name": "HuzurVakti_Global_SuperApp",
+  "updated_at": "2026-05-16T06:57:19.227686",
+  "design_update": {
+    "theme": "Night blue, spiritual gold, white glassmorphism",
+    "bottom_navigation": [
+      "Ana Sayfa",
+      "Kur'an",
+      "Araçlar/Pusula",
+      "Asistan & Destek"
+    ],
+    "dashboard": [
+      "Animated Apple Health style circular prayer countdown",
+      "Liquid wave fill inside countdown ring",
+      "Horizontal Ayet/Hadis/Dua cards",
+      "Glass capsule NavigationBar"
+    ]
+  },
+  "audit": "tool/design_vision_audit.py",
+  "audit_result": "passed"
+}

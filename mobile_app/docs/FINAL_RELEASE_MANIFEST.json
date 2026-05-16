@@ -1,0 +1,23 @@
+{
+  "project": "HuzurVakti_Mobile_Mega_Project",
+  "final_name": "HuzurVakti_Production_Final_V3_ReleaseReady",
+  "created_at": "2026-05-15T18:34:40.726513",
+  "files_count": 70,
+  "audit": {
+    "todos": [],
+    "broken_imports": [],
+    "dart_placeholders": []
+  },
+  "release_audit_script": "tool/release_audit.py",
+  "release_checklist": "docs/STORE_RELEASE_CHECKLIST.md",
+  "key_changes_from_v2": [
+    "Removed deprecated theme API usage for newer Flutter SDK compatibility",
+    "Added release audit script",
+    "Added store release checklist",
+    "Added Android release ProGuard rules",
+    "Added release build minify/shrink config",
+    "Verified no pending-marker text",
+    "Verified no broken relative Dart imports",
+    "Verified key Android/iOS permissions and platform keys"
+  ]
+}

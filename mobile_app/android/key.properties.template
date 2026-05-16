@@ -1,0 +1,4 @@
+storePassword=CHANGE_ME
+keyPassword=CHANGE_ME
+keyAlias=huzurvakti
+storeFile=/absolute/path/to/huzurvakti-release-key.jks

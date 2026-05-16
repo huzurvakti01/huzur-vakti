@@ -1,0 +1,22 @@
+# This file tracks properties of this Flutter project.
+version:
+  revision: "store-ready-template"
+  channel: "stable"
+
+project_type: app
+
+migration:
+  platforms:
+    - platform: root
+      create_revision: store-ready-template
+      base_revision: store-ready-template
+    - platform: android
+      create_revision: store-ready-template
+      base_revision: store-ready-template
+    - platform: ios
+      create_revision: store-ready-template
+      base_revision: store-ready-template
+
+unmanaged_files:
+  - 'lib/main.dart'
+  - 'ios/Runner.xcodeproj/project.pbxproj'

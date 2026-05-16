@@ -1,0 +1,41 @@
+{
+  "name": "HuzurVakti_GodMode_Dynamic_Config",
+  "created_at": "2026-05-16T08:09:12.566708",
+  "dynamic_updates": [
+    "AppGodModeResolver added",
+    "Firestore app_settings/theme listener added",
+    "CachedNetworkImage dynamic logo fallback added",
+    "Dynamic splash image fallback added",
+    "Remote Config feature flags added",
+    "Feature-gated bottom navigation and module cards added",
+    "localization_override live text map added",
+    "ThemeData primaryColor dynamically applied from Firestore"
+  ],
+  "firestore_document": "app_settings/theme",
+  "firestore_fields": [
+    "logoUrl",
+    "splashImageUrl",
+    "primaryColor",
+    "localization_override"
+  ],
+  "remote_config_flags": [
+    "isAiEnabled",
+    "isWomenCalendarVisible",
+    "isSeferiModeActive",
+    "isMediaCenterActive"
+  ],
+  "important_paths": [
+    "mobile_app/lib/core/config/app_god_mode_resolver.dart",
+    "mobile_app/lib/shared/widgets/dynamic_brand_logo.dart",
+    "mobile_app/lib/shared/widgets/dynamic_splash_image.dart",
+    "mobile_app/lib/shared/widgets/god_mode_text.dart",
+    "mobile_app/lib/main.dart",
+    "mobile_app/lib/core/routing/app_router.dart",
+    "mobile_app/lib/features/shell/presentation/main_shell.dart",
+    "mobile_app/lib/features/home/presentation/home_screen.dart",
+    "mobile_app/lib/features/super_app/presentation/super_app_hub_screen.dart",
+    "mobile_app/lib/features/support/presentation/assistant_support_hub_screen.dart"
+  ],
+  "audit": "tool/god_mode_dynamic_audit.py",
+  "audit_result": "passed"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "HuzurVakti_Native_Core_Stability",
+  "created_at": "2026-05-16T07:52:18.315470",
+  "native_updates": [
+    "background_alarm_manager.dart added",
+    "flutter_local_notifications exactAllowWhileIdle scheduling added",
+    "AndroidAlarmManager allowWhileIdle fallback added",
+    "Workmanager fallback retained",
+    "android_intent_plus exact alarm settings intent added",
+    "battery optimization settings intent added",
+    "DND Notification Policy Access service methods added",
+    "DndPermissionCard widget added",
+    "AndroidManifest high-priority alarm, boot and DND permissions added",
+    "ScheduledNotificationBootReceiver and ScheduledNotificationReceiver declarations added",
+    "iOS UIBackgroundModes updated: audio, location, fetch, remote-notification"
+  ],
+  "important_paths": [
+    "mobile_app/lib/core/services/background_alarm_manager.dart",
+    "mobile_app/lib/core/services/background_alarm_scheduler.dart",
+    "mobile_app/lib/core/services/prayer_dnd_service.dart",
+    "mobile_app/lib/shared/widgets/dnd_permission_card.dart",
+    "mobile_app/android/app/src/main/AndroidManifest.xml",
+    "mobile_app/ios/Runner/Info.plist"
+  ],
+  "audit": "tool/native_core_audit.py",
+  "audit_result": "passed"
+}

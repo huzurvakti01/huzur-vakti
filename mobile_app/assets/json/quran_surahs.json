@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "number": 1,
+      "name": "الفاتحة",
+      "englishName": "Al-Faatiha",
+      "englishNameTranslation": "The Opening",
+      "numberOfAyahs": 7
+    },
+    {
+      "number": 112,
+      "name": "الإخلاص",
+      "englishName": "Al-Ikhlaas",
+      "englishNameTranslation": "Sincerity",
+      "numberOfAyahs": 4
+    },
+    {
+      "number": 113,
+      "name": "الفلق",
+      "englishName": "Al-Falaq",
+      "englishNameTranslation": "The Daybreak",
+      "numberOfAyahs": 5
+    },
+    {
+      "number": 114,
+      "name": "الناس",
+      "englishName": "An-Naas",
+      "englishNameTranslation": "Mankind",
+      "numberOfAyahs": 6
+    }
+  ]
+}

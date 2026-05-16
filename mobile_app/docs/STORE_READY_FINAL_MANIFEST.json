@@ -1,0 +1,17 @@
+{
+  "name": "HuzurVakti_Store_Ready_Final",
+  "created_at": "2026-05-15T18:37:23.930130",
+  "files_count": 92,
+  "scan": {
+    "todos": [],
+    "broken_imports": [],
+    "missing_required": []
+  },
+  "preflight": "passed",
+  "release_audit": "passed",
+  "notes": [
+    "Real Firebase/AdMob/Google Maps/IAP secrets must be inserted by the developer account owner.",
+    "Flutter SDK is not available in this environment, so flutter analyze/build could not be executed here.",
+    "The package contains bootstrap and preflight scripts for the release machine."
+  ]
+}

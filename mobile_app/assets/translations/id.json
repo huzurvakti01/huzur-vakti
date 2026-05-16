@@ -1,0 +1,20 @@
+{
+  "appName": "Waktu Huzur",
+  "settingsTitle": "Pengaturan",
+  "language": "Bahasa",
+  "calculationMethod": "Metode Perhitungan Waktu Salat",
+  "hijriOffset": "Penyesuaian Kalender Hijriah",
+  "consentPrivacy": "Privasi dan Persetujuan Iklan",
+  "consentManage": "Kelola Preferensi Persetujuan",
+  "autoMethod": "Pilih metode otomatis berdasarkan lokasi",
+  "method_3": "Liga Muslim Dunia",
+  "method_4": "Umm Al-Qura",
+  "method_2": "ISNA",
+  "method_13": "Diyanet",
+  "home": "Beranda",
+  "quran": "Al-Qur’an",
+  "toolsCompass": "Alat & Kiblat",
+  "assistantSupport": "Asisten & Dukungan",
+  "premium": "Premium",
+  "support": "Pusat Bantuan"
+}

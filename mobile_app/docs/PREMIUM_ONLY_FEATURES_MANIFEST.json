@@ -1,0 +1,19 @@
+{
+  "name": "HuzurVakti_PremiumOnly_Features",
+  "created_at": "2026-05-16T05:06:57.471124",
+  "base": "HuzurVakti_Premium_Monetization_Integrated.zip",
+  "features": [
+    "Premium hard wake mode for Fajr alarm",
+    "sensors_plus shake challenge requiring 20 shakes",
+    "Math challenge alarm dismissal",
+    "Premium biometric lock with local_auth",
+    "Face ID / Touch ID protected private notes and dreams screen",
+    "Premium guided reflection and podcast library",
+    "Provider graph integration",
+    "Settings screen toggles and navigation",
+    "iOS NSFaceIDUsageDescription",
+    "Android USE_BIOMETRIC permission"
+  ],
+  "audit": "tool/premium_only_features_audit.py",
+  "audit_result": "passed"
+}

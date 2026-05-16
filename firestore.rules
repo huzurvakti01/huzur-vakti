@@ -1,0 +1,210 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.isAdmin == true;
+    }
+
+    function validTicketCreate() {
+      return request.resource.data.keys().hasOnly([
+        'uid',
+        'email',
+        'subject',
+        'message',
+        'status',
+        'priority',
+        'source',
+        'createdAt',
+        'updatedAt'
+      ])
+      && request.resource.data.uid == request.auth.uid
+      && request.resource.data.subject is string
+      && request.resource.data.message is string
+      && request.resource.data.subject.size() >= 3
+      && request.resource.data.subject.size() <= 120
+      && request.resource.data.message.size() >= 10
+      && request.resource.data.message.size() <= 4000
+      && request.resource.data.status == 'open'
+      && request.resource.data.priority in ['low', 'normal', 'high']
+      && request.resource.data.source == 'mobile_app';
+    }
+
+    function validDuaCreate() {
+      return request.resource.data.keys().hasOnly([
+        'uid',
+        'displayName',
+        'text',
+        'isReported',
+        'reportCount',
+        'blockedBy',
+        'createdAt',
+        'updatedAt',
+        'languageCode',
+        'status'
+      ])
+      && request.resource.data.uid == request.auth.uid
+      && request.resource.data.text is string
+      && request.resource.data.text.size() >= 3
+      && request.resource.data.text.size() <= 1200
+      && request.resource.data.isReported == false
+      && request.resource.data.reportCount == 0
+      && request.resource.data.status in ['active', 'pending'];
+    }
+
+    match /users/{uid} {
+      allow create: if isOwner(uid)
+        && request.resource.data.keys().hasOnly([
+          'uid',
+          'email',
+          'displayName',
+          'photoUrl',
+          'isPremium',
+          'premiumUntil',
+          'createdAt',
+          'updatedAt',
+          'languageCode',
+          'countryCode',
+          'calculationMethod',
+          'hijriOffset',
+          'zikir',
+          'qaza',
+          'streak'
+        ])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.isPremium == false;
+
+      allow read: if isOwner(uid) || isAdmin();
+
+      allow update: if isOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'displayName',
+          'photoUrl',
+          'updatedAt',
+          'languageCode',
+          'countryCode',
+          'calculationMethod',
+          'hijriOffset',
+          'zikir',
+          'qaza',
+          'streak'
+        ]);
+
+      allow update, delete: if isAdmin();
+
+      match /private/{docId} {
+        allow read, write: if isOwner(uid);
+        allow read, write, delete: if isAdmin();
+      }
+
+      match /backups/{backupId} {
+        allow read, write: if isOwner(uid);
+        allow read, write, delete: if isAdmin();
+      }
+    }
+
+    match /tickets/{ticketId} {
+      allow create: if signedIn() && validTicketCreate();
+      allow read: if signedIn()
+        && (resource.data.uid == request.auth.uid || isAdmin());
+
+      allow update: if signedIn()
+        && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status',
+          'updatedAt'
+        ])
+        && request.resource.data.status in ['closed'];
+
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /support_tickets/{ticketId} {
+      allow create: if signedIn() && validTicketCreate();
+      allow read: if signedIn()
+        && (resource.data.uid == request.auth.uid || isAdmin());
+
+      allow update: if signedIn()
+        && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status',
+          'updatedAt'
+        ])
+        && request.resource.data.status in ['closed'];
+
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /dualar/{duaId} {
+      allow create: if signedIn() && validDuaCreate();
+
+      allow read: if signedIn()
+        && (resource.data.status == 'active' || isAdmin());
+
+      allow update: if signedIn()
+        && (
+          (
+            resource.data.uid == request.auth.uid
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+              'text',
+              'updatedAt',
+              'status'
+            ])
+            && request.resource.data.text is string
+            && request.resource.data.text.size() >= 3
+            && request.resource.data.text.size() <= 1200
+            && request.resource.data.status in ['active', 'deleted_by_user']
+          )
+          ||
+          (
+            request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+              'isReported',
+              'reportCount',
+              'updatedAt'
+            ])
+            && request.resource.data.reportCount == resource.data.reportCount + 1
+            && request.resource.data.isReported == true
+          )
+          ||
+          isAdmin()
+        );
+
+      allow delete: if isAdmin();
+    }
+
+    match /ai_audit_logs/{logId} {
+      allow create: if false;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /admin_audit_logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /daily_content/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /remote_config_mirror/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /banned_devices/{deviceId} {
+      allow read, write, delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

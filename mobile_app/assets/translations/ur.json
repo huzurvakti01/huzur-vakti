@@ -1,0 +1,20 @@
+{
+  "appName": "حضور وقت",
+  "settingsTitle": "ترتیبات",
+  "language": "زبان",
+  "calculationMethod": "نماز اوقات حساب کا طریقہ",
+  "hijriOffset": "ہجری تقویم کی درستگی",
+  "consentPrivacy": "رازداری اور اشتہاری رضامندی",
+  "consentManage": "رضامندی ترجیحات کا انتظام",
+  "autoMethod": "مقام کے مطابق خودکار طریقہ منتخب کریں",
+  "method_3": "مسلم ورلڈ لیگ",
+  "method_4": "ام القریٰ",
+  "method_2": "ISNA",
+  "method_13": "دیانت",
+  "home": "مرکزی صفحہ",
+  "quran": "قرآن کریم",
+  "toolsCompass": "اوزار اور قبلہ",
+  "assistantSupport": "معاون اور مدد",
+  "premium": "پریمیم",
+  "support": "مدد مرکز"
+}

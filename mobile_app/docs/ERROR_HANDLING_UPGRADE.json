@@ -1,0 +1,18 @@
+{
+  "name": "ProfessionalErrorHandlingUpgrade",
+  "created_at": "2026-05-15T18:41:33.831672",
+  "changes": [
+    "Added logger package",
+    "Added AppLogger",
+    "Added AppException hierarchy",
+    "Added ErrorPresenter for SnackBar/Dialog feedback",
+    "Startup initialization is logged with fallback support",
+    "Prayer API errors now produce user-readable messages",
+    "Location permission/network failures are logged",
+    "Finance rate fallback is logged",
+    "IAP errors are logged and surfaced to UI",
+    "Adhan audio source and preview errors are logged and surfaced",
+    "Widget bridge and background alarm failures are logged",
+    "AI, Qibla, Tahajjud, Premium, Settings, Community and Traveler screens surface errors through UI feedback"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "HuzurVakti_HumanExpert_StoreReady",
+  "created_at": "2026-05-16T04:41:57.779609",
+  "base": "HuzurVakti_Store_Ready_Final_AppStrings.zip",
+  "production_bindings": [
+    "AlAdhan prayer time API with http and error handling",
+    "Quran API service using alquran.cloud",
+    "Firebase Core/Auth/Firestore services",
+    "Google Mobile Ads service with sensitive-screen suppression",
+    "In-App Purchase product query, purchase and restore flow",
+    "SharedPreferences-backed gamification and qaza progress",
+    "Finance rate service with network fetch and cache-based fallback",
+    "No debug premium bypass",
+    "No static Quran list",
+    "No static qaza progress chart",
+    "Central AppStrings for presentation strings"
+  ],
+  "audit_script": "tool/production_no_dummy_audit.py",
+  "audit": "passed"
+}

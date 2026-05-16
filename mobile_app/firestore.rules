@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    match /dua_requests/{docId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 8
+        && request.resource.data.text.size() <= 600;
+      allow update: if signedIn()
+        && (
+          request.resource.data.diff(resource.data).changedKeys().hasOnly(['aminCount'])
+          || request.resource.data.diff(resource.data).changedKeys().hasOnly(['isReported', 'reportCount', 'lastReportedAt'])
+          || request.resource.data.diff(resource.data).changedKeys().hasOnly(['blockedByOwnerUids'])
+        );
+      allow delete: if false;
+    }
+
+    match /dua_reports/{docId} {
+      allow create: if signedIn()
+        && request.resource.data.reporterUid == request.auth.uid;
+      allow read, update, delete: if false;
+    }
+
+    match /dua_blocks/{docId} {
+      allow create: if signedIn()
+        && request.resource.data.blockerUid == request.auth.uid;
+      allow read, update, delete: if false;
+    }
+
+    match /banned_users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+
+    match /users/{uid}/cloud_sync/{docId} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+
+    match /users/{uid} {
+      allow read, update: if signedIn() && request.auth.uid == uid;
+      allow create: if signedIn() && request.auth.uid == uid;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

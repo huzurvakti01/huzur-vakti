@@ -1,0 +1,23 @@
+{
+  "name": "HuzurVakti_Global_Final",
+  "created_at": "2026-05-16T07:04:25.992235",
+  "folders": [
+    "mobile_app",
+    "admin_panel"
+  ],
+  "verified_modules": [
+    "Quran reader with locale-based translations and Alafasy streaming",
+    "Media center with Kaaba/Madinah live streams and Quran radio",
+    "Prayer DND service",
+    "GPS traveler mode",
+    "Women calendar",
+    "GPT-4o language-aware AI assistant payload",
+    "Firebase Helpdesk tickets",
+    "AdMob Native Ad, interstitial counter and UMP consent",
+    "RevenueCat premium paywall product identifiers",
+    "Premium ad removal, unlimited AI guard, hard wake alarm and biometric lock",
+    "God Mode Admin Panel with AI moderation, AI content studio and Remote Config"
+  ],
+  "audit": "tool/global_final_audit.py",
+  "audit_result": "passed"
+}

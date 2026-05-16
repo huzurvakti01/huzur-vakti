@@ -1,0 +1,44 @@
+{
+  "name": "HuzurVakti_Ultimate_SourceCode",
+  "created_at": "2026-05-16T06:14:57.740502",
+  "folders": [
+    "mobile_app",
+    "admin_panel"
+  ],
+  "mobile": {
+    "bottom_tabs": [
+      "Ana Sayfa",
+      "Kur'an",
+      "Araçlar/Pusula",
+      "Asistan & Destek"
+    ],
+    "features": [
+      "Glassmorphism dashboard",
+      "AdMob Native Ad dashboard",
+      "Smart interstitial counter",
+      "RevenueCat service",
+      "AlAdhan prayer times",
+      "quran.cloud Quran + Turkish translation + Alafasy audio",
+      "Unsplash/fallback wallpaper gallery",
+      "Greeting card creator",
+      "Media center live stream/radio",
+      "Women calendar",
+      "Prayer DND",
+      "Traveler mode",
+      "Helpdesk Firebase tickets",
+      "Onboarding background location explanation"
+    ]
+  },
+  "admin_panel": {
+    "features": [
+      "God Mode User Matrix",
+      "AI moderation logs",
+      "AI content studio",
+      "Remote Config kill switch",
+      "Support ticket inbox",
+      "Hard delete, reset password, ban device"
+    ]
+  },
+  "audit": "tool/ultimate_audit.py",
+  "audit_result": "passed"
+}

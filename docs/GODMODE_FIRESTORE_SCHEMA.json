@@ -1,0 +1,68 @@
+{
+  "app_settings/theme": {
+    "schemaVersion": 1,
+    "logoUrl": "https://cdn.example.com/logo_main.png",
+    "splashImageUrl": "https://cdn.example.com/splash_logo.png",
+    "primaryColor": "#0E7C66",
+    "colors": {
+      "primary": "#0E7C66",
+      "secondary": "#E7C568",
+      "background": "#06111F",
+      "surface": "#102B25",
+      "text": "#F3FBF8"
+    },
+    "fontStyle": {
+      "family": "Inter",
+      "arabicFamily": "Amiri",
+      "weight": "600",
+      "scale": 1.0
+    },
+    "localization_override": {
+      "tr.onboardingTitle": "Huzur Vakti’ne Hoş Geldiniz",
+      "en.onboardingTitle": "Welcome to Huzur Time"
+    },
+    "revision": 1,
+    "updatedAt": "serverTimestamp",
+    "updatedBy": "admin@example.com"
+  },
+  "app_settings/features": {
+    "schemaVersion": 1,
+    "ai_active": true,
+    "widgets_active": true,
+    "women_calendar_active": true,
+    "seferi_mode_active": true,
+    "media_center_active": true,
+    "community_active": true,
+    "kids_mode_active": true,
+    "premium_paywall_active": true,
+    "force_update_active": false,
+    "min_version_code": 1,
+    "revision": 1,
+    "updatedAt": "serverTimestamp",
+    "updatedBy": "admin@example.com"
+  },
+  "app_settings/ads": {
+    "schemaVersion": 1,
+    "ads_active": true,
+    "native_active": true,
+    "interstitial_active": true,
+    "banner_id_android": "ca-app-pub-xxx/android-banner",
+    "banner_id_ios": "ca-app-pub-xxx/ios-banner",
+    "native_id_android": "ca-app-pub-xxx/android-native",
+    "native_id_ios": "ca-app-pub-xxx/ios-native",
+    "interstitial_id_android": "ca-app-pub-xxx/android-interstitial",
+    "interstitial_id_ios": "ca-app-pub-xxx/ios-interstitial",
+    "frequency": 4,
+    "sensitive_screens_blocked": [
+      "home",
+      "quran",
+      "qibla",
+      "ai_chat",
+      "kids_mode",
+      "adhan_alarm"
+    ],
+    "revision": 1,
+    "updatedAt": "serverTimestamp",
+    "updatedBy": "admin@example.com"
+  }
+}

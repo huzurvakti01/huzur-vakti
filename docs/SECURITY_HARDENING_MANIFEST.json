@@ -1,0 +1,26 @@
+{
+  "name": "HuzurVakti_Security_Hardened",
+  "created_at": "2026-05-16T07:47:54.037681",
+  "security_updates": [
+    "firestore.rules added with users/tickets/support_tickets/dualar protections",
+    "Admin access via custom claims isAdmin == true",
+    "Mobile ai_client_service.dart added",
+    "AiChatService now only talks through AiClientService",
+    "OpenAI Cloud Function proxy added with Firebase ID token verification",
+    "Per-user rate limit: max 5 requests per minute",
+    "AI audit logs written to ai_audit_logs",
+    "Firebase Crashlytics service added",
+    "Firebase Analytics service added",
+    "main.dart bootstrap updated for Crashlytics, Analytics and secure AI client"
+  ],
+  "important_paths": [
+    "firestore.rules",
+    "mobile_app/lib/core/services/ai_client_service.dart",
+    "mobile_app/lib/core/services/ai_chat_service.dart",
+    "mobile_app/lib/core/services/crash_reporting_service.dart",
+    "mobile_app/lib/core/services/analytics_service.dart",
+    "admin_panel/functions/index.js"
+  ],
+  "audit": "tool/security_hardening_audit.py",
+  "audit_result": "passed"
+}

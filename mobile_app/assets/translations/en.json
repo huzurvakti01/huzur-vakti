@@ -1,0 +1,20 @@
+{
+  "appName": "Huzur Time",
+  "settingsTitle": "Settings",
+  "language": "Language",
+  "calculationMethod": "Salah Time Calculation Method",
+  "hijriOffset": "Hijri Calendar Adjustment",
+  "consentPrivacy": "Privacy and Ads Consent",
+  "consentManage": "Manage Consent Preferences",
+  "autoMethod": "Auto-select method by location",
+  "method_3": "Muslim World League",
+  "method_4": "Umm Al-Qura",
+  "method_2": "ISNA",
+  "method_13": "Diyanet",
+  "home": "Home",
+  "quran": "The Qur’an",
+  "toolsCompass": "Tools & Qibla",
+  "assistantSupport": "Assistant & Support",
+  "premium": "Premium",
+  "support": "Support Center"
+}

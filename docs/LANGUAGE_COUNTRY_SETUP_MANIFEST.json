@@ -1,0 +1,26 @@
+{
+  "name": "HuzurVakti_Global_SuperApp",
+  "created_at": "2026-05-16T06:54:20.930969",
+  "added_feature": "First launch Language & Country Setup",
+  "initial_location": "/language-country-setup",
+  "settings_reopen_route": "/language-country-setup?edit=1",
+  "languages": [
+    "tr",
+    "en",
+    "ar",
+    "fr",
+    "ur",
+    "id"
+  ],
+  "rtl_languages": [
+    "ar",
+    "ur"
+  ],
+  "country_selection": {
+    "searchable": true,
+    "gps_auto_detect": true,
+    "calculation_method_auto_set": true
+  },
+  "audit": "tool/language_country_setup_audit.py",
+  "audit_result": "passed"
+}

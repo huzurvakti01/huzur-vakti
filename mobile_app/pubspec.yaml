@@ -1,0 +1,122 @@
+name: huzur_vakti_mobile_mega
+description: Huzur Vakti - premium Islamic lifestyle mobile app.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter_localizations:
+    sdk: flutter
+  flutter:
+    sdk: flutter
+
+  provider: ^6.1.2
+  easy_localization: ^3.0.7
+  go_router: ^14.2.7
+  google_fonts: ^6.2.1
+  cached_network_image: ^3.4.1
+  intl: ^0.19.0
+  http: ^1.2.2
+  flutter_dotenv: ^5.1.0
+  logger: ^2.4.0
+  shared_preferences: ^2.3.2
+  flutter_secure_storage: ^9.2.2
+  flutter_dynamic_icon: ^2.1.0
+  path_provider: ^2.1.4
+  local_auth: ^2.3.0
+  sensors_plus: ^6.0.1
+
+  firebase_core: ^3.4.0
+  firebase_auth: ^5.2.0
+  crypto: ^3.0.5
+  sign_in_with_apple: ^6.1.2
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^5.4.0
+  firebase_remote_config: ^5.1.0
+  firebase_analytics: ^11.3.0
+  firebase_crashlytics: ^4.1.3
+  firebase_messaging: ^15.1.0
+
+  geolocator: ^13.0.1
+  flutter_compass: ^0.8.0
+  google_maps_flutter: ^2.9.0
+  url_launcher: ^6.3.0
+
+  google_mobile_ads: ^5.1.0
+  in_app_purchase: ^3.2.0
+  purchases_flutter: ^8.2.0
+
+  just_audio: ^0.9.42
+  flutter_local_notifications: ^17.2.2
+  android_intent_plus: ^5.2.0
+  timezone: ^0.9.4
+  flutter_native_splash: ^2.4.1
+  audio_session: ^0.1.21
+  audio_service: ^0.18.15
+  android_alarm_manager_plus: ^4.0.4
+  workmanager: ^0.5.2
+
+  home_widget: ^0.7.0
+  live_activities: ^2.2.2
+  app_links: ^6.3.2
+
+  hijri: ^3.0.0
+  fl_chart: ^0.69.0
+  image: ^4.3.0
+  record: ^5.2.0
+  permission_handler: ^11.3.1
+  share_plus: ^10.1.2
+  flutter_dnd: ^0.1.4+1
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
+  youtube_player_flutter: ^9.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/translations/
+    - .env.example
+    - assets/audio/
+    - assets/images/
+    - assets/json/
+
+
+flutter_native_splash:
+  color: "#06111F"
+  color_dark: "#06111F"
+  image: assets/images/splash_logo.png
+  image_dark: assets/images/splash_logo.png
+  android: true
+  ios: true
+  web: false
+  fullscreen: true
+  android_12:
+    color: "#06111F"
+    color_dark: "#06111F"
+    image: assets/images/splash_logo.png
+    image_dark: assets/images/splash_logo.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/images/app_icon.png
+  adaptive_icon_background: "#052F26"
+  adaptive_icon_foreground: assets/images/app_icon.png
+  remove_alpha_ios: true
+  min_sdk_android: 23
+  web:
+    generate: true
+    image_path: assets/images/app_icon.png
+    background_color: "#06111F"
+    theme_color: "#D9B45F"
+  windows:
+    generate: false
+  macos:
+    generate: false

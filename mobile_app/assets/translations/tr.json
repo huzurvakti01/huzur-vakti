@@ -1,0 +1,20 @@
+{
+  "appName": "Huzur Vakti",
+  "settingsTitle": "Ayarlar",
+  "language": "Dil",
+  "calculationMethod": "Namaz Vakti Hesaplama Yöntemi",
+  "hijriOffset": "Hicri Takvim Düzeltmesi",
+  "consentPrivacy": "Gizlilik ve Reklam Rızası",
+  "consentManage": "Rıza Tercihlerini Yönet",
+  "autoMethod": "Konuma göre otomatik yöntem seç",
+  "method_3": "Dünya İslam Birliği",
+  "method_4": "Ummü’l-Kurâ",
+  "method_2": "ISNA",
+  "method_13": "Diyanet",
+  "home": "Ana Sayfa",
+  "quran": "Kur’an-ı Kerim",
+  "toolsCompass": "Araçlar ve Kıble",
+  "assistantSupport": "Asistan ve Destek",
+  "premium": "Premium",
+  "support": "Destek Merkezi"
+}

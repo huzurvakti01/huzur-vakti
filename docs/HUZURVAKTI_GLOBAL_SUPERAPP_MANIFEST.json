@@ -1,0 +1,44 @@
+{
+  "name": "HuzurVakti_Global_SuperApp",
+  "created_at": "2026-05-16T06:51:05.238490",
+  "folders": [
+    "mobile_app",
+    "admin_panel"
+  ],
+  "languages": [
+    "tr",
+    "en",
+    "ar",
+    "fr",
+    "ur",
+    "id"
+  ],
+  "rtl_languages": [
+    "ar",
+    "ur"
+  ],
+  "mobile_features": [
+    "easy_localization i18n",
+    "6 language assets",
+    "RTL-ready Arabic and Urdu",
+    "Global AlAdhan calculation methods",
+    "GPS-based method auto-select",
+    "Locale-based quran.cloud translation editions",
+    "Hijri offset -2 to +2",
+    "AdMob UMP GDPR/CCPA consent",
+    "Native Ad dashboard",
+    "RevenueCat premium",
+    "Helpdesk tickets",
+    "No-empty Unsplash/fallback gallery"
+  ],
+  "admin_panel_features": [
+    "God Mode Flutter Web",
+    "AI auto moderation",
+    "AI content autopilot",
+    "Remote Config kill switch",
+    "User Matrix",
+    "Support tickets"
+  ],
+  "audit": "tool/global_superapp_audit.py",
+  "audit_result": "passed"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "HuzurVakti_Content_Integrity_Final",
+  "created_at": "2026-05-16T08:03:41.774432",
+  "content_integrity_updates": [
+    "Mandatory AI fatwa disclaimer appended through DataRepositoryHub",
+    "Local offline JSON fallback database added",
+    "quran.cloud fallback to assets/json/quran_tr.json",
+    "AlAdhan fallback to assets/json/prayer_fallback.json",
+    "Dashboard religious content fallback to assets/json/content_fallback.json",
+    "6 language localization terminology reviewed",
+    "main.dart provider/import integration fixed"
+  ],
+  "important_paths": [
+    "mobile_app/lib/core/services/data_repository_hub.dart",
+    "mobile_app/assets/json/quran_tr.json",
+    "mobile_app/assets/json/quran_surahs.json",
+    "mobile_app/assets/json/prayer_fallback.json",
+    "mobile_app/assets/json/content_fallback.json",
+    "mobile_app/lib/core/services/prayer_api_service.dart",
+    "mobile_app/lib/core/services/quran_api_service.dart",
+    "mobile_app/lib/core/services/religious_content_service.dart",
+    "mobile_app/lib/core/services/ai_client_service.dart",
+    "mobile_app/lib/core/services/ai_chat_service.dart",
+    "mobile_app/assets/translations/tr.json",
+    "mobile_app/assets/translations/en.json",
+    "mobile_app/assets/translations/ar.json",
+    "mobile_app/assets/translations/fr.json",
+    "mobile_app/assets/translations/ur.json",
+    "mobile_app/assets/translations/id.json"
+  ],
+  "audit": "tool/content_integrity_audit.py",
+  "audit_result": "passed"
+}

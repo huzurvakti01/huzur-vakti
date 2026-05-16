@@ -1,0 +1,23 @@
+{
+  "name": "HuzurVakti_Admin_AppEngine_BrandController",
+  "created_at": "2026-05-16T08:13:26.107216",
+  "admin_updates": [
+    "god_mode_studio.dart added",
+    "Firebase Storage PNG logo upload added",
+    "Firestore app_settings/theme logoUrl, splashImageUrl, primaryColor editor added",
+    "Feature Control Matrix added",
+    "Remote Config publish callable added",
+    "AdMob and RevenueCat monetization editor added",
+    "6-language localization_override table added",
+    "AppShell navigation entry added"
+  ],
+  "important_paths": [
+    "admin_panel/lib/screens/god_mode_studio.dart",
+    "admin_panel/lib/screens/app_shell.dart",
+    "admin_panel/lib/services/functions_service.dart",
+    "admin_panel/functions/index.js",
+    "admin_panel/pubspec.yaml"
+  ],
+  "audit": "tool/admin_god_mode_studio_audit.py",
+  "audit_result": "passed"
+}

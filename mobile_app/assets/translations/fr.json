@@ -1,0 +1,20 @@
+{
+  "appName": "Temps de Paix",
+  "settingsTitle": "Réglages",
+  "language": "Langue",
+  "calculationMethod": "Méthode de calcul des horaires de salat",
+  "hijriOffset": "Ajustement du calendrier hégirien",
+  "consentPrivacy": "Confidentialité et consentement publicitaire",
+  "consentManage": "Gérer les préférences de consentement",
+  "autoMethod": "Choisir automatiquement selon la position",
+  "method_3": "Ligue islamique mondiale",
+  "method_4": "Umm Al-Qura",
+  "method_2": "ISNA",
+  "method_13": "Diyanet",
+  "home": "Accueil",
+  "quran": "Le Coran",
+  "toolsCompass": "Outils et Qibla",
+  "assistantSupport": "Assistant et support",
+  "premium": "Premium",
+  "support": "Centre d’assistance"
+}
