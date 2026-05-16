@@ -30,6 +30,8 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+        working-directory: mobile_app
 
       - name: Build APK
         run: flutter build apk --release --no-shrink
+        working-directory: mobile_app
