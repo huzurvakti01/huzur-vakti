@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../errors/app_exception.dart';
 import '../logging/app_logger.dart';
+import '../constants/app_strings.dart';
 
 class GalleryImage {
   final String id;
