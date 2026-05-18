@@ -102,8 +102,7 @@ Future<void> main() async {
   final crashReportingService = CrashReportingService();
   final analyticsService = AnalyticsService();
   final adConsentService = AdConsentService();
-  final backgroundAlarmManager = BackgroundAlarmManager();
-  await _safeInit(
+   await _safeInit(
     label: 'widget_bridge',
     action: widgetBridgeService.init,
     fatal: false,
