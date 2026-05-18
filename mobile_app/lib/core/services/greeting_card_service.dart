@@ -38,8 +38,7 @@ class GreetingCardService {
             y1: 0,
             x2: 1080,
             y2: 1350,
-            color: img.ColorRgba8(0, 0, 0, 76),
-          );
+            color: img.ColorRgba8(0, 0, 0, 76),          );
         }
       } else {
         image = img.Image(width: 1080, height: 1350);

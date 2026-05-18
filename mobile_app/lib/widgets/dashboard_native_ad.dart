@@ -8,8 +8,7 @@ import '../core/services/purchase_service.dart';
 import '../core/theme/app_theme.dart';
 
 class DashboardNativeAd extends StatefulWidget {
-  const DashboardNativeAd(
-        factoryId: 'huzur_glass_native',{super.key});
+  const DashboardNativeAd({super.key});
 
   static const screenKey = 'dashboard_native_ad';
 
@@ -44,7 +43,7 @@ class _DashboardNativeAdState extends State<DashboardNativeAd> {
 
     final ad = NativeAd(
       adUnitId: context.read<AdService>().nativeUnitId(context),
-      factoryId: 'dashboardNativeAd',
+      factoryId: 'huzur_glass_native',
       request: const AdRequest(),
       listener: NativeAdListener(
         onAdLoaded: (ad) {

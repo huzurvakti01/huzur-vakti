@@ -5,9 +5,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
+import '../constants/app_strings.dart';
 import '../errors/app_exception.dart';
 import '../logging/app_logger.dart';
-import '../constants/app_strings.dart';
 
 class GalleryImage {
   final String id;
@@ -26,7 +26,7 @@ class GalleryImage {
 }
 
 class GalleryService {
-  static const _fallback = [
+  static const List<GalleryImage> _fallback = [
     GalleryImage(
       id: 'kaaba-night',
       title: 'Kabe Gece',
@@ -85,19 +85,23 @@ class GalleryService {
       final decoded = jsonDecode(response.body) as Map<String, dynamic>;
       final results = decoded['results'] as List<dynamic>? ?? [];
 
-      final images = results.map((item) {
-        final map = item as Map<String, dynamic>;
-        final urls = map['urls'] as Map<String, dynamic>? ?? {};
-        final user = map['user'] as Map<String, dynamic>? ?? {};
+      final images = results
+          .map((item) {
+            final map = item as Map<String, dynamic>;
+            final urls = map['urls'] as Map<String, dynamic>? ?? {};
+            final user = map['user'] as Map<String, dynamic>? ?? {};
+            final links = map['links'] as Map<String, dynamic>? ?? {};
 
-        return GalleryImage(
-          id: (map['id'] ?? '').toString(),
-          title: (map['alt_description'] ?? map['description'] ?? 'İslami Duvar Kağıdı').toString(),
-          imageUrl: (urls['regular'] ?? urls['full'] ?? '').toString(),
-          author: (user['name'] ?? 'Unsplash').toString(),
-          sourceUrl: (map['links'] as Map<String, dynamic>? ?? {})['html']?.toString() ?? 'https://unsplash.com',
-        );
-      }).where((item) => item.imageUrl.isNotEmpty).toList(growable: false);
+            return GalleryImage(
+              id: (map['id'] ?? '').toString(),
+              title: (map['alt_description'] ?? map['description'] ?? 'İslami Duvar Kağıdı').toString(),
+              imageUrl: (urls['regular'] ?? urls['full'] ?? '').toString(),
+              author: (user['name'] ?? 'Unsplash').toString(),
+              sourceUrl: links['html']?.toString() ?? 'https://unsplash.com',
+            );
+          })
+          .where((item) => item.imageUrl.isNotEmpty)
+          .toList(growable: false);
 
       return images.isEmpty ? _fallback : images;
     } catch (error, stackTrace) {
@@ -109,7 +113,6 @@ class GalleryService {
       return _fallback;
     }
   }
-
 
   Future<File> saveImageToDevice(GalleryImage image) async {
     try {
@@ -145,10 +148,11 @@ class GalleryService {
     }
   }
 
-
+  GalleryImage fallbackAt(int index) {
     if (_fallback.isEmpty) {
       throw const AppException('Galeri içeriği bulunamadı.', code: 'gallery_empty');
     }
+
     return _fallback[index % _fallback.length];
   }
 }

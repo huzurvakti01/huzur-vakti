@@ -1,0 +1,20 @@
+{
+  "name": "HuzurVakti_APK_Build_Repaired_Final",
+  "created_at": "2026-05-17T05:27:49.317519",
+  "applied_fixes": [
+    "widget_bridge_service.dart live_activities bypass preserved",
+    "religious_content_service.dart localDailyContent bypass preserved",
+    "prayer_dnd_service.dart invalid await before gotoPolicySettings removed",
+    "greeting_card_service.dart deprecated image blend parameter removed",
+    "main.dart problematic providers replaced with null-safe providers",
+    "app_icon_service.dart broken setAlternateIconName syntax cleaned",
+    "gallery_service.dart rewritten with clean imports, fallback and balanced class structure",
+    "home_screen.dart traveler bottom sheet parenthesis hierarchy repaired",
+    "dashboard_native_ad.dart constructor fixed and native factory id kept in NativeAd",
+    "settings_screen.dart const locale list map issue fixed",
+    "khutbah_service.dart _safeSummary restored outside fetchLatest",
+    "record dependency removed and Ayah Finder recorder usage replaced with safe stub to avoid record_linux errors",
+    "relative Dart imports checked"
+  ],
+  "audit": "docs/BUILD_REPAIR_AUDIT.json"
+}

@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:home_widget/home_widget.dart';
-import 'package:live_activities/live_activities.dart';
 
 import '../logging/app_logger.dart';
 import '../models/prayer_times.dart';
@@ -11,14 +8,9 @@ class WidgetBridgeService {
   static const androidWidget = 'HuzurPrayerWidget';
   static const iosWidget = 'HuzurPrayerWidget';
 
-  final LiveActivities _liveActivities = LiveActivities();
-
   Future<void> init() async {
     try {
       await HomeWidget.setAppGroupId(appGroupId);
-      if (Platform.isIOS) {
-        _liveActivities.init(appGroupId: appGroupId);
-      }
     } catch (error, stackTrace) {
       AppLogger.warning(
         'Widget bridge init failed',
@@ -44,18 +36,6 @@ class WidgetBridgeService {
         error: error,
         stackTrace: stackTrace,
       );
-    }
-
-    if (Platform.isIOS) {
-      try {
-        // Live activity bypass
-      } catch (error, stackTrace) {
-        AppLogger.warning(
-          'Live Activity update failed',
-          error: error,
-          stackTrace: stackTrace,
-        );
-      }
     }
   }
 

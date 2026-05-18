@@ -35,12 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
     _showTravelerSuggestionOnce();
   }
 
+
   Future<void> _showTravelerSuggestionOnce() async {
     if (_suggestedTraveler) return;
+
     final traveler = context.read<TravelerModeService>();
     await traveler.refresh();
+
     if (!mounted || !traveler.shouldSuggest) return;
+
     _suggestedTraveler = true;
+
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -51,19 +56,43 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Icon(Icons.luggage_rounded, size: 54, color: AppTheme.gold),
             const SizedBox(height: 12),
-            Text(AppStrings.travelerSuggestionTitle, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900)),
+            Text(
+              AppStrings.travelerSuggestionTitle,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900),
+            ),
             const SizedBox(height: 8),
-            Text(AppStrings.format(AppStrings.travelerSuggestionMessage, {'distance': traveler.distanceKm?.toStringAsFixed(1) ?? '-'}), textAlign: TextAlign.center),
+            Text(
+              AppStrings.format(
+                AppStrings.travelerSuggestionMessage,
+                {'distance': traveler.distanceKm?.toStringAsFixed(1) ?? '-'},
+              ),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 18),
-            Row(children: [
-              Expanded(child: OutlinedButton(onPressed: () => Navigator.pop(context), child: const Text(AppStrings.later))),
-              const SizedBox(width: 12),
-              Expanded(child: FilledButton(onPressed: () { traveler.setActive(true); Navigator.pop(context); }, child: const Text(AppStrings.open))),
-            ]),
-      ],
-    ),
-  ),
-);
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text(AppStrings.later),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: () {
+                      traveler.setActive(true);
+                      Navigator.pop(context);
+                    },
+                    child: const Text(AppStrings.open),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -132,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               _QuickActions(),
-             // const DashboardNativeAd(),
+              const DashboardNativeAd(),
               _PrayerListCard(),
             ],
           ],

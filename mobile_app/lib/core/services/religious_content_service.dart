@@ -24,6 +24,7 @@ class DashboardReligiousContent {
   Future<List<DashboardReligiousContent>> _localizedFallback(String languageCode) async {
     try {
       final content = {};
+
       return [
         DashboardReligiousContent(
           type: AppStrings.dashboardAyahCard,
@@ -97,7 +98,7 @@ class ReligiousContentService {
     final khutbah = await _fetchKhutbahHeadline(languageCode);
     if (khutbah != null) results.add(khutbah);
 
-    if (results.isEmpty) return results;
+    if (results.isEmpty) return _localizedFallback(languageCode);
     if (results.length < 3) {
       results.addAll(fallback.where((item) => !results.any((r) => r.type == item.type)));
     }

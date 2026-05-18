@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,11 +24,11 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
   @override
   void initState() {
     super.initState();
-    future = context.read<GalleryService>().fetchIslamicWallpapers();
+    future = GalleryService().fetchIslamicWallpapers();
   }
 
   Future<void> _reload() async {
-    setState(() => future = context.read<GalleryService>().fetchIslamicWallpapers());
+    setState(() => future = GalleryService().fetchIslamicWallpapers());
     await future;
   }
 
@@ -40,7 +39,7 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
 
   Future<void> _saveToDevice(GalleryImage image) async {
     try {
-      await context.read<GalleryService>().saveImageToDevice(image);
+      await GalleryService().saveImageToDevice(image);
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -117,7 +116,7 @@ class _WallpaperGalleryScreenState extends State<WallpaperGalleryScreen> {
           future: future,
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return  ListView(children: [SizedBox(height: 360, child: Center(child: CircularProgressIndicator()))]);
+              return const ListView(children: [SizedBox(height: 360, child: Center(child: CircularProgressIndicator()))]);
             }
 
             final images = snapshot.data!;

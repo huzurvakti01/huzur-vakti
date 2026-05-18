@@ -5,43 +5,13 @@ allprojects {
     }
 }
 
-rootProject.buildDir = "../build"
+rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 subprojects {
-    project.evaluationDependsOn(":app")
+    project.evaluationDependsOn(':app')
 }
-
-// Zamanlama korumalı geliştirilmiş yeni namespace tamir kodu:
-subprojects {
-    def fixNamespace = { prj ->
-        if (prj.hasProperty('android')) {
-            prj.android {
-                if (namespace == null) {
-                    namespace = "com.huzurvakti.fallback." + prj.name
-                }
-            }
-        }
-    }
-
-    if (project.state.executed) {
-        fixNamespace(project)
-    } else {
-        project.afterEvaluate { fixNamespace(project) }
-    }
-}
-
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-}
-
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.google.gms:google-services:4.4.1'
-    }
 }

@@ -142,6 +142,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+
   Future<void> _toggleHardWake(bool value) async {
     final isPremium = context.read<PurchaseService>().isPremium;
 
@@ -214,6 +215,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     context.push(path);
   }
 
+
   Future<void> _setLanguage(Locale locale) async {
     await context.setLocale(locale);
     if (mounted) setState(() {});
@@ -243,6 +245,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (mounted) ErrorPresenter.showSnackBar(context, error);
     }
   }
+
 
   Future<void> _deleteAccount() async {
     final confirmed = await showDialog<bool>(
@@ -311,13 +314,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               secondary: const Icon(Icons.child_care_rounded),
             ),
           ),
+
+
           GlassCard(
             child: ListTile(
               leading: const Icon(Icons.public_rounded),
               title: const Text(AppStrings.openLanguageCountrySetup, style: TextStyle(fontWeight: FontWeight.w900)),
-              subtitle: Text(
-                '${globalSettings.country.flag} ${globalSettings.country.label(context.locale.languageCode)} • ${globalSettings.method.title}',
-              ),
+              subtitle: Text('${globalSettings.country.flag} ${globalSettings.country.label(context.locale.languageCode)} • ${globalSettings.method.title}'),
               trailing: const Icon(Icons.chevron_right_rounded),
               onTap: () => context.push('/smart-setup?edit=1'),
             ),
@@ -326,10 +329,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  AppStrings.localizationLanguage,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                ),
+                Text(AppStrings.localizationLanguage, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
                 const SizedBox(height: 12),
                 Wrap(
                   spacing: 8,
@@ -350,10 +350,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  AppStrings.localizationCalculationMethod,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                ),
+                Text(AppStrings.localizationCalculationMethod, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
                 const SizedBox(height: 8),
                 ...CalculationMethod.all.map(
                   (method) => RadioListTile<int>(
@@ -384,10 +381,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  AppStrings.localizationHijriOffset,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                ),
+                Text(AppStrings.localizationHijriOffset, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
                 const SizedBox(height: 12),
                 SegmentedButton<int>(
                   segments: const [
@@ -482,10 +476,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  AppStrings.adhanAudioSelection,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                ),
+                Text(AppStrings.adhanAudioSelection, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
                 const SizedBox(height: 12),
                 ...AdhanAudioService.sources.map(
                   (s) => FutureBuilder<bool>(
@@ -541,15 +532,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           GlassCard(
-            child: ListTile(
-              leading: const Icon(Icons.delete_forever_rounded, color: Colors.redAccent),
-              title: const Text(AppStrings.deleteAccount, style: TextStyle(fontWeight: FontWeight.w900)),
-              subtitle: const Text(AppStrings.deleteAccountBody),
-              trailing: const Icon(Icons.chevron_right_rounded),
-              onTap: _deleteAccount,
-            ),
-          ),
-          GlassCard(
             child: Text(premium.isPremium ? AppStrings.premiumActiveNoAds : AppStrings.freeAdsPolicy),
           ),
           const SafeBannerAd(screenKey: SettingsScreen.screenKey),
@@ -569,6 +551,75 @@ class _SettingsTile extends StatelessWidget {
     required this.icon,
     required this.onTap,
   });
+
+
+  Future<void> _setLanguage(Locale locale) async {
+    await context.setLocale(locale);
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _autoSelectCalculationMethod() async {
+    try {
+      final pos = await context.read<LocationService>().currentPosition();
+      final method = await context.read<GlobalSettingsService>().autoSelectCalculationMethod(
+            latitude: pos.latitude,
+            longitude: pos.longitude,
+          );
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${AppStrings.localizationAutoMethod}: ${method.title}')),
+      );
+    } catch (error) {
+      if (mounted) ErrorPresenter.showSnackBar(context, error);
+    }
+  }
+
+  Future<void> _openConsentForm() async {
+    try {
+      await context.read<ConsentService>().showPrivacyOptions();
+    } catch (error) {
+      if (mounted) ErrorPresenter.showSnackBar(context, error);
+    }
+  }
+
+
+  Future<void> _deleteAccount() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
+        title: const Text(AppStrings.deleteAccountTitle),
+        content: const Text(AppStrings.deleteAccountBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text(AppStrings.later),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text(AppStrings.deleteAccountConfirm),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    try {
+      await context.read<AuthService>().deleteAccount();
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text(AppStrings.deleteAccountDone)),
+      );
+
+      context.go('/auth');
+    } catch (error) {
+      if (mounted) ErrorPresenter.showSnackBar(context, error);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

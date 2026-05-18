@@ -1,4 +1,3 @@
-// zorunlu degisiklik testi
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +20,6 @@ class QuranScreen extends StatefulWidget {
 }
 
 class _QuranScreenState extends State<QuranScreen> {
-bool _audioPlaying = false;
   late Future<List<QuranSurah>> _future;
 
   @override
@@ -82,7 +80,7 @@ bool _audioPlaying = false;
           future: _future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return  ListView(
+              return const ListView(
                 children: [
                   SizedBox(height: 360, child: Center(child: CircularProgressIndicator())),
                 ],
@@ -130,7 +128,7 @@ bool _audioPlaying = false;
                     trailing: Text(
                       surah.name,
                       style: const TextStyle(fontSize: 24),
-      
+                      textDirection: TextDirection.rtl,
                     ),
                   ),
                 );
@@ -215,7 +213,7 @@ class _QuranReaderScreenState extends State<QuranReaderScreen> {
           future: _future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return  ListView(
+              return const ListView(
                 children: [
                   SizedBox(height: 360, child: Center(child: CircularProgressIndicator())),
                 ],
@@ -289,6 +287,7 @@ class _QuranReaderScreenState extends State<QuranReaderScreen> {
                                 ayah.text,
                                 style: const TextStyle(fontSize: 30, height: 1.9),
                                 textAlign: TextAlign.right,
+                                textDirection: TextDirection.rtl,
                               ),
                               const SizedBox(height: 12),
                               Text(

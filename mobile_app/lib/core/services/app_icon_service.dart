@@ -56,6 +56,7 @@ class AppIconService {
     }
   }
 
+
   Future<void> changeIcon({
     required AppIconOption option,
     required bool isPremium,
@@ -77,7 +78,8 @@ class AppIconService {
         );
       }
 
-      await FlutterDynamicIcon.setAlternateIconName(null);
+      await FlutterDynamicIcon.setAlternateIconName(option.iconName);
+
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString(_selectedIconKey, option.id);
     } on AppException {

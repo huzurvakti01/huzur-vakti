@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-05-17T05:27:39.078608",
+  "checks": {
+    "record_dependency_removed": true,
+    "record_import_removed": true,
+    "widget_live_activities_removed": true,
+    "religious_hub_bypassed": true,
+    "prayer_dnd_await_removed": true,
+    "greeting_blend_removed": true,
+    "main_adConsent_provider_replaced": true,
+    "main_background_provider_replaced": true,
+    "main_scheduler_provider_replaced": true,
+    "app_icon_junk_removed": true,
+    "gallery_import_appstrings": true,
+    "gallery_single_fallback": true,
+    "dashboard_constructor_fixed": true,
+    "settings_const_map_fixed": true,
+    "khutbah_safe_summary": true,
+    "no_broken_relative_imports": true
+  },
+  "broken_imports": [],
+  "note": "Dart/Flutter CLI was unavailable in the sandbox; fixes were applied by source-code inspection and pattern audit."
+}

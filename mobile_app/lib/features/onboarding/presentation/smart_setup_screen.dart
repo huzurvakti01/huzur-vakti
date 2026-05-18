@@ -1,4 +1,3 @@
-// zorunlu degisiklik testi
 import 'dart:ui' as ui;
 
 import 'package:easy_localization/easy_localization.dart';
@@ -227,7 +226,7 @@ class _SmartSetupScreenState extends State<SmartSetupScreen> {
                                         ),
                                       ),
                                       Text(
-                                        direction.toString().contains('rtl') ? 'RTL' : 'LTR',
+                                        direction == TextDirection.rtl ? 'RTL' : 'LTR',
                                         style: const TextStyle(color: AppTheme.gold, fontWeight: FontWeight.w900),
                                       ),
                                     ],
